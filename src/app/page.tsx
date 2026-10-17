@@ -1,22 +1,15 @@
 import React from "react";
-import { HeroSection } from "@/components/sections";
+import { HeroSection, ProjectsSection } from "@/components/sections";
 import { Card, Badge, SectionHeading, Marquee } from "@/components/ui";
 import { Layers, Clock } from "lucide-react";
 
 export default function Home() {
   const upcomingSections = [
     {
-      id: "projects",
-      title: "Featured Projects & Case Studies",
-      phase: "Phase 6",
-      status: "Next Planned Phase",
-      desc: "Verified project cards with architecture breakdowns, tech stack pills, and case study dialogs.",
-    },
-    {
       id: "skills",
       title: "Technical Skills Matrix",
       phase: "Phase 7",
-      status: "Upcoming",
+      status: "Next Planned Phase",
       desc: "Categorized skills across Languages, Frontend, Backend, Tools, and Core CS fundamentals.",
     },
     {
@@ -59,7 +52,10 @@ export default function Home() {
       {/* Signature Phase 5 Hero Section (#home) */}
       <HeroSection />
 
-      {/* Section Roadmap & Anchor Destinations (#projects, #skills, #experience, #about, #contact) */}
+      {/* Real Phase 6 Projects Section (#projects) */}
+      <ProjectsSection />
+
+      {/* Section Roadmap & Anchor Destinations (#skills, #experience, #about, #contact) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
         <SectionHeading
           number="// SECTION DIRECTORY"
@@ -68,7 +64,7 @@ export default function Home() {
           description="The navigation bar targets the following verified section anchors. Each section will be incrementally implemented in subsequent phases."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {upcomingSections.map((item) => (
             <section
               key={item.id}

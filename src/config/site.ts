@@ -43,7 +43,7 @@ export const siteConfig: SiteConfig = {
   location: "India",
   navItems: [
     { label: "Home", href: "/#home", isAnchor: true, sectionStatus: "ready" },
-    { label: "Projects", href: "/#projects", isAnchor: true, sectionStatus: "upcoming" },
+    { label: "Projects", href: "/#projects", isAnchor: true, sectionStatus: "ready" },
     { label: "Skills", href: "/#skills", isAnchor: true, sectionStatus: "upcoming" },
     { label: "Experience", href: "/#experience", isAnchor: true, sectionStatus: "upcoming" },
     { label: "About", href: "/#about", isAnchor: true, sectionStatus: "upcoming" },
