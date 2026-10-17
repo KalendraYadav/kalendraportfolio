@@ -44,9 +44,9 @@ export const siteConfig: SiteConfig = {
   navItems: [
     { label: "Home", href: "/#home", isAnchor: true, sectionStatus: "ready" },
     { label: "Projects", href: "/#projects", isAnchor: true, sectionStatus: "ready" },
-    { label: "Skills", href: "/#skills", isAnchor: true, sectionStatus: "upcoming" },
-    { label: "Experience", href: "/#experience", isAnchor: true, sectionStatus: "upcoming" },
-    { label: "About", href: "/#about", isAnchor: true, sectionStatus: "upcoming" },
+    { label: "Skills", href: "/#skills", isAnchor: true, sectionStatus: "ready" },
+    { label: "Experience", href: "/#experience", isAnchor: true, sectionStatus: "ready" },
+    { label: "About", href: "/#about", isAnchor: true, sectionStatus: "ready" },
     { label: "Contact", href: "/#contact", isAnchor: true, sectionStatus: "upcoming" },
     { label: "Design System", href: "/design-system", isAnchor: false, badge: "DEV" },
   ],

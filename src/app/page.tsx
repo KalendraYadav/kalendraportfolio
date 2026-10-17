@@ -1,40 +1,15 @@
 import React from "react";
-import { HeroSection, ProjectsSection } from "@/components/sections";
+import {
+  HeroSection,
+  ProjectsSection,
+  SkillsSection,
+  ExperienceSection,
+  AboutSection,
+} from "@/components/sections";
 import { Card, Badge, SectionHeading, Marquee } from "@/components/ui";
-import { Layers, Clock } from "lucide-react";
+import { Mail, Clock } from "lucide-react";
 
 export default function Home() {
-  const upcomingSections = [
-    {
-      id: "skills",
-      title: "Technical Skills Matrix",
-      phase: "Phase 7",
-      status: "Next Planned Phase",
-      desc: "Categorized skills across Languages, Frontend, Backend, Tools, and Core CS fundamentals.",
-    },
-    {
-      id: "experience",
-      title: "Experience & Practical Exposure",
-      phase: "Phase 7",
-      status: "Upcoming",
-      desc: "Chronological vertical timeline of verified engineering milestones and contributions.",
-    },
-    {
-      id: "about",
-      title: "About & Engineering Philosophy",
-      phase: "Phase 7",
-      status: "Upcoming",
-      desc: "Personal developer bio, engineering values, craftsmanship standards, and approach to problem-solving.",
-    },
-    {
-      id: "contact",
-      title: "Contact & Verified Profiles",
-      phase: "Phase 8",
-      status: "Upcoming",
-      desc: "One-click email copy action, verified social/coding profiles, and official résumé access.",
-    },
-  ];
-
   return (
     <main id="main-content" className="flex-1">
       {/* Infinite Running Marquee Ticker */}
@@ -55,62 +30,60 @@ export default function Home() {
       {/* Real Phase 6 Projects Section (#projects) */}
       <ProjectsSection />
 
-      {/* Section Roadmap & Anchor Destinations (#skills, #experience, #about, #contact) */}
+      {/* Real Phase 7 Skills Matrix Section (#skills) */}
+      <SkillsSection />
+
+      {/* Real Phase 7 Experience & Engineering Timeline Section (#experience) */}
+      <ExperienceSection />
+
+      {/* Real Phase 7 About & Engineering Philosophy Section (#about) */}
+      <AboutSection />
+
+      {/* Section Roadmap & Anchor Destination for Upcoming Contact Hub (#contact) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
         <SectionHeading
           number="// SECTION DIRECTORY"
-          title="Section Roadmap & Verified Anchor Destinations"
+          title="Upcoming Section Roadmap"
           as="h2"
-          description="The navigation bar targets the following verified section anchors. Each section will be incrementally implemented in subsequent phases."
+          description="The navigation bar and hero CTAs target the verified contact hub anchor below, which will be fully implemented in Phase 8."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {upcomingSections.map((item) => (
-            <section
-              key={item.id}
-              id={item.id}
-              tabIndex={-1}
-              className="scroll-mt-24 outline-none"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <section
+            id="contact"
+            tabIndex={-1}
+            className="scroll-mt-24 outline-none md:col-span-2 lg:col-span-1"
+          >
+            <Card
+              variant="yellow"
+              shadow="md"
+              borderWidth="3"
+              headerTitle="ANCHOR: #contact"
+              headerBadge={
+                <Badge size="sm" variant="yellow">
+                  Phase 8
+                </Badge>
+              }
+              showWindowControls
             >
-              <Card
-                variant="white"
-                shadow="md"
-                borderWidth="3"
-                headerTitle={`ANCHOR: #${item.id}`}
-                headerBadge={
-                  <Badge
-                    size="sm"
-                    variant={item.status === "Next Planned Phase" ? "yellow" : "outline"}
-                  >
-                    {item.phase}
-                  </Badge>
-                }
-                showWindowControls
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2 font-mono text-xs font-bold text-text-muted">
-                    {item.status === "Next Planned Phase" ? (
-                      <>
-                        <Clock className="w-3.5 h-3.5 text-ink-black" />
-                        <span className="text-ink-black">{item.status}</span>
-                      </>
-                    ) : (
-                      <>
-                        <Layers className="w-3.5 h-3.5" />
-                        <span>{item.status}</span>
-                      </>
-                    )}
-                  </div>
-                  <h3 className="font-display font-bold text-xl uppercase text-ink-black">
-                    {item.title}
-                  </h3>
-                  <p className="font-body text-sm text-text-muted leading-relaxed">
-                    {item.desc}
-                  </p>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-ink-black">
+                  <Clock className="w-3.5 h-3.5 text-ink-black" />
+                  <span>Next Planned Phase</span>
                 </div>
-              </Card>
-            </section>
-          ))}
+                <h3 className="font-display font-bold text-xl uppercase text-ink-black">
+                  Contact & Verified Profiles Hub
+                </h3>
+                <p className="font-body text-sm text-ink-black/80 leading-relaxed">
+                  Interactive contact hub with one-click email copy action, verified coding profiles (GitHub, LinkedIn), and official résumé download.
+                </p>
+                <div className="pt-2 flex items-center gap-2 font-mono text-xs font-bold text-ink-black">
+                  <Mail className="w-4 h-4 text-ink-black" />
+                  <span>contact@kalendrayadav.dev</span>
+                </div>
+              </div>
+            </Card>
+          </section>
         </div>
       </div>
     </main>
