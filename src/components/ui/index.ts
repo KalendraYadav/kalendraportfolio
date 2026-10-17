@@ -4,3 +4,4 @@ export * from "./Badge";
 export * from "./SectionHeading";
 export * from "./Marquee";
 export * from "./HalftonePortrait";
+export * from "./ResumeNoticeModal";

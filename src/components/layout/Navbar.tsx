@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { Button, Badge } from "@/components/ui";
+import { Button, Badge, ResumeNoticeModal } from "@/components/ui";
 import { Menu, X, Download, FileText } from "lucide-react";
 
 export function Navbar() {
@@ -187,51 +187,10 @@ export function Navbar() {
       </header>
 
       {/* Résumé Status Notice Dialog (Avoids fake 404 download) */}
-      {resumeNoticeOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="resume-notice-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink-black/60"
-        >
-          <div className="relative w-full max-w-md bg-surface-white border-4 border-ink-black shadow-brutal-xl p-6 space-y-4">
-            <div className="flex items-center justify-between border-b-2 border-ink-black pb-2">
-              <span className="font-mono text-xs font-bold uppercase tracking-wider text-text-muted">
-                {"// NOTICE // DOC_KY01"}
-              </span>
-              <button
-                type="button"
-                onClick={() => setResumeNoticeOpen(false)}
-                className="p-1 border border-ink-black hover:bg-pop-red hover:text-surface-white transition-colors"
-                aria-label="Close dialog"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <h3
-              id="resume-notice-title"
-              className="font-display font-black text-2xl uppercase tracking-tight text-ink-black"
-            >
-              Résumé Coming Soon
-            </h3>
-
-            <p className="font-body text-sm text-text-muted leading-relaxed">
-              {siteConfig.resume.notice}
-            </p>
-
-            <div className="pt-2 flex justify-end gap-3">
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={() => setResumeNoticeOpen(false)}
-              >
-                Acknowledge
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+      <ResumeNoticeModal
+        isOpen={resumeNoticeOpen}
+        onClose={() => setResumeNoticeOpen(false)}
+      />
     </>
   );
 }

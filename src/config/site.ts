@@ -14,6 +14,20 @@ export interface ProfileLink {
   verified: boolean;
 }
 
+export interface ContactEmailConfig {
+  address: string;
+  verified: boolean;
+  unavailableNotice: string;
+}
+
+export interface ContactConfig {
+  email: ContactEmailConfig;
+  headline: string;
+  subheading: string;
+  operatingLocation: string;
+  statusText: string;
+}
+
 export interface SiteConfig {
   name: string;
   brand: string;
@@ -21,6 +35,7 @@ export interface SiteConfig {
   tagline: string;
   location: string;
   navItems: NavItem[];
+  contact: ContactConfig;
   resume: {
     isAvailable: boolean;
     url: string;
@@ -47,9 +62,20 @@ export const siteConfig: SiteConfig = {
     { label: "Skills", href: "/#skills", isAnchor: true, sectionStatus: "ready" },
     { label: "Experience", href: "/#experience", isAnchor: true, sectionStatus: "ready" },
     { label: "About", href: "/#about", isAnchor: true, sectionStatus: "ready" },
-    { label: "Contact", href: "/#contact", isAnchor: true, sectionStatus: "upcoming" },
+    { label: "Contact", href: "/#contact", isAnchor: true, sectionStatus: "ready" },
     { label: "Design System", href: "/design-system", isAnchor: false, badge: "DEV" },
   ],
+  contact: {
+    email: {
+      address: "contact@kalendrayadav.dev",
+      verified: false,
+      unavailableNotice: "Official contact address is currently pending DNS setup. Update 'verified: true' in src/config/site.ts to activate copy & direct mail actions.",
+    },
+    headline: "Let's build something durable.",
+    subheading: "Available for full-time engineering roles, high-impact contract systems, and technical collaboration.",
+    operatingLocation: "India (Open to Remote & Relocation)",
+    statusText: "AVAILABLE FOR ROLES",
+  },
   resume: {
     isAvailable: false,
     url: "/documents/kalendra-yadav-resume.pdf",
@@ -88,4 +114,18 @@ export const siteConfig: SiteConfig = {
  */
 export function getVerifiedProfiles(): ProfileLink[] {
   return siteConfig.profiles.filter((profile) => profile.verified);
+}
+
+/**
+ * Checks whether a verified contact email is currently configured.
+ */
+export function isEmailVerified(): boolean {
+  return siteConfig.contact.email.verified;
+}
+
+/**
+ * Checks whether the official resume PDF is confirmed in the repository.
+ */
+export function isResumeAvailable(): boolean {
+  return siteConfig.resume.isAvailable;
 }

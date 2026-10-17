@@ -5,3 +5,5 @@ export * from "./CaseStudyModal";
 export * from "./SkillsSection";
 export * from "./ExperienceSection";
 export * from "./AboutSection";
+export * from "./ContactSection";
+export * from "./CopyEmailButton";
