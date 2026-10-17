@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import {
   Button,
   Card,
@@ -16,6 +17,15 @@ import {
   Terminal,
   Layers,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Design System & UI Primitives",
+  description: "Internal design system specification, color tokens, and brutalist component preview.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function DesignSystemPreviewPage() {
   const marqueeItems = [

@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { Navbar, Footer, SkipToContent } from "@/components/layout";
+import { siteConfig } from "@/config/site";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -21,10 +22,63 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kalendrayadav.dev";
+
+export const viewport: Viewport = {
+  themeColor: "#FFE600",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Kalendra Yadav | Full-Stack Software Engineer",
-  description:
-    "Personal developer portfolio of Kalendra Yadav. High-performance full-stack applications, resilient systems, and interactive digital experiences.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteConfig.name} | ${siteConfig.role}`,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.tagline,
+  keywords: [
+    "Kalendra Yadav",
+    "Full-Stack Software Engineer",
+    "Next.js Developer",
+    "TypeScript",
+    "React 19",
+    "Tailwind CSS 4",
+    "Systems Architecture",
+    "Neo-Brutalism",
+    "Interactive Portfolio",
+    "Web Performance",
+  ],
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    title: `${siteConfig.name} | ${siteConfig.role}`,
+    description: siteConfig.tagline,
+    siteName: siteConfig.brand,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | ${siteConfig.role}`,
+    description: siteConfig.tagline,
+  },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
