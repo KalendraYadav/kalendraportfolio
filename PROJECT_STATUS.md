@@ -4,7 +4,7 @@
 - **Project Name**: Kalendra Yadav — Personal Developer Portfolio
 - **Product Objective**: Build an exceptionally polished, distinctive, responsive personal developer portfolio establishing a credible professional identity for recruiters, engineering managers, startup founders, and technical interviewers.
 - **Design Philosophy**: Neo-Brutalism + Pop Art + Interactive Editorial Storytelling (bold typography, thick high-contrast borders, hard drop shadows, punchy yellow/black/cyan/pop-magenta palette, halftone screenprint portraiture).
-- **Current Phase**: Phase 3 — Design Tokens & Reusable UI Primitives (Completed)
+- **Current Phase**: Phase 4 — Navigation & Global Shell (Completed)
 
 ---
 
@@ -124,5 +124,32 @@
 
 ---
 
-## 9. Next Planned Action
-- **Phase 4: Navigation & Global Shell**: Implement the sticky neo-brutalist navbar, accessible mobile menu drawer, and structured footer shell according to `docs/PRD.md` and `docs/DESIGN_SYSTEM.md`.
+## 9. Phase 4 Navigation & Global Shell Progress (Completed)
+- **Components Created**:
+  - `src/config/site.ts`: Central typed configuration module for brand wordmark (`KALENDRA.DEV`), navigation anchor items, unverified profile filters, and safe résumé availability tracking.
+  - `src/components/layout/Navbar.tsx`: Sticky neo-brutalist header (`z-40`, solid black borders, hard shadow), wordmark brand link with live status indicator, responsive desktop link array, and safe résumé dialog notice (avoids 404 links).
+  - `src/components/layout/Footer.tsx`: Pure Server Component rendering brand descriptor, dynamic copyright year (`2026`), verified profiles filter, and technical colophon.
+  - `src/components/layout/BackToTopButton.tsx`: Client-side accessible smooth scroll-to-top button with tactile hover/press states.
+  - `src/components/layout/SkipToContent.tsx`: Accessible skip-to-content anchor visually hidden until keyboard focus, targeting `#main-content`.
+  - `src/components/layout/index.ts`: Barrel export for all layout primitives.
+- **Mobile Navigation Drawer**:
+  - Accessible toggle control with `aria-expanded` and `aria-controls`.
+  - Keyboard listener: automatically closes on Escape key press.
+  - Closes on link selection and locks background scroll while open.
+- **Root Layout & Homepage Shell**:
+  - `RootLayout` updated to assemble `SkipToContent`, `Navbar`, `{children}`, and `Footer`.
+  - Homepage (`src/app/page.tsx`) updated to render real `#main-content` target, valid section anchors (`#home`, `#projects`, `#skills`, `#experience`, `#about`, `#contact`) with `scroll-mt-24` to gracefully support anchor navigation without 404s or layout jumps.
+- **Accessibility Improvements**:
+  - WCAG 2.2 AA keyboard navigation: visible focus rings on skip link, wordmark, nav links, and drawer buttons.
+  - Safe link handling: unverified social profiles are excluded from the public UI; missing résumé triggers an informative modal instead of a broken download.
+- **Validation Results**:
+  - `npm run lint`: PASSED (0 errors, 0 warnings).
+  - `npm run build`: PASSED (Static production build completed successfully in 460ms).
+  - Dev Server Verification: Both `/` and `/design-system` returned HTTP `200 OK`. `SkipToContent` and `KALENDRA.DEV` brand confirmed in HTML.
+- **Known Issues**: None.
+- **Current Project Phase**: Phase 4 (Completed).
+
+---
+
+## 10. Next Planned Action
+- **Phase 5: Hero Section & Pop-Art Portrait System**: Implement the signature editorial hero section, high-contrast duotone screenprint portrait composition, status pill, headline typography, and action CTAs according to `docs/PRD.md` and `docs/DESIGN_SYSTEM.md`.

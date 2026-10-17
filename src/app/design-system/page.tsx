@@ -29,7 +29,7 @@ export default function DesignSystemPreviewPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-canvas-cream text-ink-black pb-24">
+    <main id="main-content" className="min-h-screen bg-canvas-cream text-ink-black pb-24">
       {/* Dev Notice Banner */}
       <div className="bg-pop-pink text-surface-white font-mono text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-2 text-center border-b-3 border-ink-black flex items-center justify-center gap-2">
         <Sparkles className="w-4 h-4 shrink-0" aria-hidden="true" />

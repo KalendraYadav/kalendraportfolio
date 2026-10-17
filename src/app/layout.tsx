@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Navbar, Footer, SkipToContent } from "@/components/layout";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -34,10 +35,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-body bg-canvas-cream text-ink-black antialiased selection:bg-cyber-yellow selection:text-ink-black">
+        <SkipToContent />
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
