@@ -27,6 +27,11 @@ export interface SiteConfig {
     label: string;
     notice: string;
   };
+  portrait: {
+    src: string;
+    alt: string;
+    isPlaceholder: boolean;
+  };
   profiles: ProfileLink[];
 }
 
@@ -50,6 +55,11 @@ export const siteConfig: SiteConfig = {
     url: "/documents/kalendra-yadav-resume.pdf",
     label: "Résumé",
     notice: "The official résumé PDF will be available upon launch. Please reach out via email for early access.",
+  },
+  portrait: {
+    src: "/images/portrait/placeholder-avatar.svg",
+    alt: "Kalendra Yadav - Full-Stack Software Engineer pop-art duotone portrait",
+    isPlaceholder: true,
   },
   profiles: [
     {

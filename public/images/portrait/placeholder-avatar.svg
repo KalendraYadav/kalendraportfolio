@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Halftone dot pattern -->
+    <pattern id="halftone-pattern" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="2" fill="#0A0A0A" opacity="0.35"/>
+    </pattern>
+    <!-- Duotone gradient -->
+    <linearGradient id="duotone-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3333"/>
+      <stop offset="50%" stop-color="#0047FF"/>
+      <stop offset="100%" stop-color="#00E5FF"/>
+    </linearGradient>
+    <linearGradient id="pop-red-blue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="45%" stop-color="#FF3333"/>
+      <stop offset="45%" stop-color="#0047FF"/>
+      <stop offset="100%" stop-color="#0047FF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background split -->
+  <rect width="800" height="800" fill="url(#pop-red-blue)" />
+
+  <!-- Halftone texture overlay -->
+  <rect width="800" height="800" fill="url(#halftone-pattern)" />
+
+  <!-- Geometric Pop-Art Avatar Silhouette -->
+  <!-- Shoulders & Coat -->
+  <polygon points="120,800 240,640 400,680 560,640 680,800" fill="#0A0A0A" />
+  <polygon points="240,640 320,540 400,570 480,540 560,640 400,680" fill="#0A0A0A" />
+
+  <!-- Shirt Collar / Cyber Yellow tie highlight -->
+  <polygon points="370,560 400,680 430,560 400,570" fill="#FFE600" stroke="#0A0A0A" stroke-width="4"/>
+
+  <!-- Neck -->
+  <polygon points="340,540 460,540 440,430 360,430" fill="#FF3333" stroke="#0A0A0A" stroke-width="4"/>
+  <polygon points="400,540 460,540 440,430 400,450" fill="#0047FF" />
+
+  <!-- Head / Face Facets -->
+  <polygon points="310,360 400,450 490,360 460,240 340,240" fill="#FF3333" stroke="#0A0A0A" stroke-width="5"/>
+  <polygon points="400,240 400,450 490,360 460,240" fill="#0047FF" stroke="#0A0A0A" stroke-width="4"/>
+
+  <!-- Jawline Shadow -->
+  <polygon points="310,360 400,450 490,360 470,390 400,460 330,390" fill="#0A0A0A" />
+
+  <!-- Stylized Hair -->
+  <path d="M 320 250 C 310 180, 360 140, 400 130 C 450 140, 490 180, 480 250 C 470 230, 430 220, 400 220 C 370 220, 330 230, 320 250 Z" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="4"/>
+  <path d="M 310 260 C 290 200, 320 150, 370 135" fill="none" stroke="#FFE600" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- High-Contrast Sunglasses (Pop Art Signature) -->
+  <polygon points="325,290 475,290 460,340 415,345 400,320 385,345 340,340" fill="#0A0A0A" stroke="#00E5FF" stroke-width="6"/>
+  <!-- Sunglasses Glass Reflection -->
+  <polygon points="345,300 395,300 375,335 345,335" fill="#00E5FF" opacity="0.85"/>
+  <polygon points="405,300 455,300 445,335 415,335" fill="#FFFFFF" opacity="0.85"/>
+
+  <!-- Corner Pop-Art Decorative Stars -->
+  <g fill="#FFE600" stroke="#0A0A0A" stroke-width="3">
+    <!-- Top Left Sparkle -->
+    <path d="M 90 70 L 98 88 L 116 96 L 98 104 L 90 122 L 82 104 L 64 96 L 82 88 Z"/>
+    <!-- Bottom Right Sparkle -->
+    <path d="M 710 690 L 718 708 L 736 716 L 718 724 L 710 742 L 702 724 L 684 716 L 702 708 Z"/>
+  </g>
+
+  <!-- Editorial Spec Box Overlay in SVG -->
+  <rect x="30" y="30" width="160" height="32" fill="#0A0A0A" />
+  <text x="40" y="52" fill="#FFE600" font-family="monospace" font-size="14" font-weight="bold" letter-spacing="2">// KY_DEV: 01</text>
+</svg>

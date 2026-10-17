@@ -3,3 +3,4 @@ export * from "./Card";
 export * from "./Badge";
 export * from "./SectionHeading";
 export * from "./Marquee";
+export * from "./HalftonePortrait";

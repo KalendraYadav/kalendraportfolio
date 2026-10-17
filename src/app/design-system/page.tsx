@@ -5,6 +5,7 @@ import {
   Badge,
   SectionHeading,
   Marquee,
+  HalftonePortrait,
 } from "@/components/ui";
 import {
   ArrowRight,
@@ -321,6 +322,41 @@ export default function DesignSystemPreviewPage() {
               items={["K. YADAV // 2026", "REACT 19", "NEXT.JS 16", "TAILWIND CSS 4"]}
               variant="white"
             />
+          </div>
+        </section>
+
+        {/* 7. Pop-Art Portrait System */}
+        <section aria-labelledby="portrait-heading" className="space-y-6">
+          <SectionHeading
+            number="// 07"
+            title="Pop-Art Halftone Portrait System"
+            as="h2"
+            description="High-contrast comic-inspired halftone screenprint portrait composition with duotone color separation, backing cards, and brutalist borders."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h3 className="font-display font-bold text-xl uppercase">
+                Screenprint Duotone Architecture
+              </h3>
+              <p className="font-body text-sm text-text-muted leading-relaxed">
+                Combines Cobalt Blue (#0047FF) midtones with Pop Red (#FF3333) highlights, overlaid with a subtle CSS radial dot matrix simulating mechanical print halftone rasterization.
+              </p>
+              <ul className="font-mono text-xs space-y-2 text-ink-black list-disc list-inside">
+                <li>Cyber Cyan or Cyber Yellow asymmetric backing card.</li>
+                <li>Fixed aspect ratio container preventing Cumulative Layout Shift (CLS).</li>
+                <li>Accessible: Decorative patterns are hidden with aria-hidden.</li>
+                <li>Placeholder is easily replaceable via public/images/portrait/README.md.</li>
+              </ul>
+            </div>
+            <div>
+              <HalftonePortrait
+                aspectRatio="square"
+                backingVariant="cyan"
+                badgeText="// SPEC_ID: PREVIEW"
+                statusText="STATUS: ACTIVE"
+                stickerText="NEO-BRUTALISM"
+              />
+            </div>
           </div>
         </section>
       </div>
