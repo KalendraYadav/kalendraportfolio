@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig, getVerifiedProfiles } from "@/config/site";
 import { BackToTopButton } from "./BackToTopButton";
 
@@ -14,17 +15,34 @@ export function Footer() {
           {/* Brand & Descriptor */}
           <div className="space-y-2">
             <Link
-              href="/#home"
-              className="font-display font-black text-2xl md:text-3xl tracking-tighter text-ink-black hover:bg-cyber-yellow px-2 py-1 border-2 border-transparent hover:border-ink-black transition-all inline-block"
+              href="/"
+              className="inline-flex items-center gap-3 font-display font-black text-2xl md:text-3xl tracking-tighter text-ink-black hover:bg-cyber-yellow px-2 py-1 border-2 border-transparent hover:border-ink-black transition-all"
             >
-              {siteConfig.brand}
+              <Image
+                src={siteConfig.logo.src}
+                alt={siteConfig.logo.alt}
+                width={40}
+                height={32}
+                className="h-8 w-auto object-contain"
+              />
+              <span>{siteConfig.name}</span>
             </Link>
             <p className="font-body text-sm text-text-muted max-w-md">
-              {`${siteConfig.role} // ${siteConfig.tagline}`}
+              {siteConfig.tagline}
             </p>
           </div>
 
-          {/* Back to Top Action (Client Component) */}
+          {/* Quick Route Navigation */}
+          <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs font-bold uppercase tracking-wider text-text-muted">
+            <Link href="/projects" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Projects</Link>
+            <Link href="/skills" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Skills</Link>
+            <Link href="/experience" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Experience</Link>
+            <Link href="/about" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">About</Link>
+            <Link href="/contact" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Contact</Link>
+            <Link href="/design-system" className="hover:text-ink-black text-cobalt-blue hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Design System</Link>
+          </nav>
+
+          {/* Back to Top Action */}
           <BackToTopButton />
         </div>
 
@@ -37,31 +55,31 @@ export function Footer() {
           {/* Verified Profiles or Development Status */}
           <div className="flex items-center gap-4 flex-wrap">
             {verifiedProfiles.length > 0 ? (
-              verifiedProfiles.map((profile) => (
-                <a
-                  key={profile.platform}
-                  href={profile.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-ink-black hover:underline"
-                >
-                  {profile.label}
-                </a>
-              ))
+              verifiedProfiles.map((profile) => {
+                const isMailto = profile.url.startsWith("mailto:");
+                return (
+                  <a
+                    key={profile.platform}
+                    href={profile.url}
+                    target={isMailto ? undefined : "_blank"}
+                    rel={isMailto ? undefined : "noopener noreferrer"}
+                    className="hover:text-ink-black hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black px-1 py-0.5"
+                    aria-label={
+                      isMailto
+                        ? `Send email to ${siteConfig.contact.email.address}`
+                        : `Open ${profile.label} profile in a new tab`
+                    }
+                  >
+                    {profile.label}
+                  </a>
+                );
+              })
             ) : (
-              <span className="text-[11px] text-text-muted italic">
-                {"// Verified social links will activate upon official launch"}
+              <span className="text-[11px] text-text-muted">
+                Professional profile links activate upon official release
               </span>
             )}
-            <Link href="/design-system" className="hover:text-ink-black font-bold">
-              [Design System Spec]
-            </Link>
           </div>
-        </div>
-
-        {/* Technical Credit */}
-        <div className="pt-4 border-t border-ink-black/20 text-center font-mono text-[11px] text-text-muted">
-          {"Built with Next.js 16, TypeScript, Tailwind CSS 4 & Neo-Brutalism Design System."}
         </div>
       </div>
     </footer>

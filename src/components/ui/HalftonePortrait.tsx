@@ -11,6 +11,8 @@ export interface HalftonePortraitProps {
   badgeText?: string;
   statusText?: string;
   stickerText?: string;
+  captionLeft?: string;
+  captionRight?: string;
   priority?: boolean;
   className?: string;
 }
@@ -26,24 +28,26 @@ export function HalftonePortrait({
   alt = siteConfig.portrait.alt,
   aspectRatio = "square",
   backingVariant = "cyan",
-  badgeText = "// DEV_ID: KY-01",
-  statusText = "STATUS: ACTIVE",
-  stickerText = "POP ART // DUOTONE",
+  badgeText = "Engineering",
+  statusText = "Kalendra Yadav",
+  stickerText,
+  captionLeft = "Systems & Web Architecture",
+  captionRight = "India",
   priority = true,
   className = "",
 }: HalftonePortraitProps) {
   const aspectClass = aspectRatio === "square" ? "aspect-square" : "aspect-[4/5]";
 
   return (
-    <div className={`relative w-full max-w-[440px] mx-auto select-none ${className}`}>
+    <div className={`relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[440px] mx-auto select-none pr-3 pb-3 sm:pr-4 sm:pb-4 ${className}`}>
       {/* 1. Asymmetric Cyber Offset Backing Card */}
       <div
-        className={`absolute inset-0 translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4 border-3 border-ink-black ${backingStyles[backingVariant]} shadow-brutal-md`}
+        className={`absolute inset-0 translate-x-2.5 translate-y-2.5 sm:translate-x-3.5 sm:translate-y-3.5 border-3 border-ink-black ${backingStyles[backingVariant]} shadow-brutal-sm sm:shadow-brutal-md`}
         aria-hidden="true"
       />
 
       {/* 2. Main High-Contrast Brutalist Framing */}
-      <div className="relative border-4 border-ink-black bg-surface-white shadow-brutal-xl">
+      <div className="relative border-3 sm:border-4 border-ink-black bg-surface-white shadow-brutal-md sm:shadow-brutal-xl transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 motion-reduce:transform-none">
         {/* Top Window Bar */}
         <div className="flex items-center justify-between border-b-3 border-ink-black bg-ink-black text-surface-white px-3 py-1.5 sm:px-4 sm:py-2">
           <div className="flex items-center gap-2">
@@ -55,14 +59,15 @@ export function HalftonePortrait({
               {statusText}
             </span>
           </div>
-          <span className="font-mono text-[11px] sm:text-xs font-bold text-cyber-yellow uppercase tracking-widest">
-            {badgeText}
-          </span>
+          {badgeText && (
+            <span className="font-mono text-[11px] sm:text-xs font-bold text-cyber-yellow uppercase tracking-widest">
+              {badgeText}
+            </span>
+          )}
         </div>
 
         {/* 3. Image Container with Aspect Ratio */}
-        <div className={`relative w-full ${aspectClass} overflow-hidden bg-cobalt-blue`}>
-          {/* Base Duotone Graphic Layer */}
+        <div className={`relative w-full ${aspectClass} overflow-hidden bg-ink-black`}>
           <div className="relative w-full h-full">
             <Image
               src={src}
@@ -73,32 +78,17 @@ export function HalftonePortrait({
               className="object-cover object-center"
             />
           </div>
-
-          {/* 4. Pop-Art Halftone Screenprint Overlay (CSS Dot Matrix) */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-25 mix-blend-multiply"
-            style={{
-              backgroundImage:
-                "radial-gradient(#0A0A0A 1.5px, transparent 1.5px)",
-              backgroundSize: "8px 8px",
-            }}
-            aria-hidden="true"
-          />
-
-          {/* 5. Comic Print Color Separation Overlay */}
-          <div
-            className="absolute inset-0 pointer-events-none mix-blend-color opacity-20 bg-gradient-to-tr from-cobalt-blue via-transparent to-pop-red"
-            aria-hidden="true"
-          />
         </div>
 
-        {/* Bottom Metadata & Corner Sticker */}
+        {/* Bottom Metadata & Caption */}
         <div className="border-t-3 border-ink-black bg-canvas-cream p-2.5 sm:p-3 flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold text-ink-black">
-          <span className="text-text-muted">{"// MATRIX: 800x800"}</span>
-          {stickerText && (
+          <span className="text-text-muted">{captionLeft}</span>
+          {stickerText ? (
             <Badge size="sm" variant="yellow" tilt="right">
               {stickerText}
             </Badge>
+          ) : (
+            <span className="text-text-muted font-mono uppercase tracking-wider">{captionRight}</span>
           )}
         </div>
       </div>

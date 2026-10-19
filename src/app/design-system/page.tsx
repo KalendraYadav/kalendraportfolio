@@ -148,7 +148,7 @@ export default function DesignSystemPreviewPage() {
                 <span className="font-mono text-xs uppercase text-text-muted">
                   Monospace / JetBrains Mono Bold
                 </span>
-                <p className="font-mono text-sm sm:text-base font-bold text-ink-black uppercase tracking-wider">
+                <p className="font-mono text-sm sm:text-base font-bold text-ink-black uppercase tracking-wider break-all sm:break-normal">
                   const ARCHITECTURE = &#123; stack: [&quot;Next.js&quot;, &quot;TypeScript&quot;, &quot;Tailwind&quot;] &#125;;
                 </p>
               </div>

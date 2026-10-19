@@ -16,6 +16,7 @@
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-handwriting: var(--font-caveat), cursive, sans-serif;
 
   --shadow-brutal-sm: 2px 2px 0px #0a0a0a;
   --shadow-brutal-md: 4px 4px 0px #0a0a0a;
@@ -62,6 +63,16 @@ body {
   outline-offset: 2px;
 }
 
+/* Responsive typography & overflow resilience */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+p, li, span, a, button {
+  overflow-wrap: break-word;
+}
+
 /* Marquee infinite scroll animation */
 @keyframes marquee {
   0% {
@@ -83,6 +94,78 @@ body {
   animation-play-state: paused;
 }
 
+/* Subtle, fast page route transition (180ms ease-out) */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition-wrapper {
+  animation: pageEnter 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* Availability sticker single-cycle wiggle animation */
+@keyframes stickerWiggle {
+  0% {
+    transform: rotate(-1.5deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(-0.5deg);
+  }
+  100% {
+    transform: rotate(-1.5deg);
+  }
+}
+
+.hover-sticker-wiggle:hover {
+  animation: stickerWiggle 0.4s ease-in-out 1;
+}
+
+/* Restrained, cinematic avatar gentle floating animation */
+@keyframes avatarFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-avatar-float {
+  animation: avatarFloat 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Comic speech bubble pop-in */
+@keyframes bubblePop {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-bubble-pop {
+  animation: bubblePop 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
 /* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -92,6 +175,26 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .hover-sticker-wiggle:hover {
+    animation: none !important;
+    transform: rotate(-1.5deg) !important;
+  }
+
+  .page-transition-wrapper {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .animate-avatar-float {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .animate-bubble-pop {
+    animation: none !important;
+    transform: none !important;
   }
 
   .animate-marquee {

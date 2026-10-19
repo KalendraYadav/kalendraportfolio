@@ -48,7 +48,7 @@ export function Card({
   headerBadge,
   showWindowControls = false,
   headerClassName = "",
-  bodyClassName = "p-5 md:p-6",
+  bodyClassName = "p-4 sm:p-5 md:p-6",
   interactive = false,
   className = "",
   children,

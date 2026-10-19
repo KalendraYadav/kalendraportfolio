@@ -48,7 +48,7 @@ export function SectionHeading({
       </div>
 
       <Component
-        className={`font-display font-black uppercase tracking-tight text-ink-black leading-[1.05] ${headingSizes[Component]}`}
+        className={`font-display font-black uppercase tracking-tight text-ink-black leading-[1.05] break-words ${headingSizes[Component]}`}
       >
         {title}
       </Component>

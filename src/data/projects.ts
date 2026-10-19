@@ -1,4 +1,7 @@
 export type ProjectCategory =
+  | "Biomedical Waste Tracking & Compliance"
+  | "AI-Powered CCTV Intelligence"
+  | "Waste Tracking & Compliance"
   | "Healthcare & IoT"
   | "Computer Vision & AI"
   | "Web Platform & Tooling"
@@ -40,72 +43,78 @@ export interface Project {
 export const projectsData: Project[] = [
   {
     id: "biotrace",
-    slug: "biotrace-nidusclean",
-    name: "BioTrace / NidusClean",
-    tagline: "IoT-enabled sanitation monitoring and environmental compliance architecture.",
-    category: "Healthcare & IoT",
+    slug: "biotrace",
+    name: "BioTrace",
+    tagline:
+      "A digital platform that helps hospitals and waste-management facilities track biomedical waste from registration to treatment. QR-code scanning records each batch's movement, making it easier to trace waste handling and maintain accountable records.",
+    category: "Biomedical Waste Tracking & Compliance",
     role: "System Architecture & Full-Stack",
-    status: "CASE_STUDY",
-    statusLabel: "CASE STUDY",
+    status: "PROTOTYPE",
+    statusLabel: "WORKING PROTOTYPE",
     featured: true,
     accentVariant: "cyan",
-    technologies: ["TypeScript", "Next.js", "Node.js", "IoT Telemetry", "PostgreSQL", "Tailwind CSS"],
+    technologies: ["TypeScript", "Next.js", "Node.js", "PostgreSQL"],
     problemStatement:
-      "Clinical and sanitation facilities require continuous, tamper-evident audit trails for sterilization cycles and environmental compliance without relying on error-prone manual paper logs.",
+      "Biomedical waste must be handled and tracked responsibly, but fragmented records can make its journey difficult to follow. BioTrace creates a centralized digital record of waste batches and their movements, helping facilities improve traceability and reduce dependence on manual paperwork.",
     solutionOverview:
-      "Engineered an end-to-end monitoring architecture that streams real-time telemetry from sensor endpoints into an immutable structured audit pipeline with instant visual dashboard reporting.",
+      "Centralizes biomedical waste records into a structured web platform where facilities register waste batches, generate unique QR codes, and record scanning events to maintain an accountable chain of custody from collection to treatment.",
     architectureDetails: [
-      "Decoupled telemetry ingestion pipeline with event timestamp validation.",
-      "Relational schema normalized for regulatory inspection logs and anomaly alerts.",
-      "High-contrast editorial dashboard interface displaying real-time facility metrics.",
+      "Digital registration workflow generating unique QR identifiers for biomedical waste batches.",
+      "Normalized relational database schema tracking custody transfers and treatment status.",
+      "High-contrast dashboard interface displaying historical batch movements and compliance logs.",
     ],
     keyChallenges: [
       {
-        title: "Telemetry Ingestion Resilience",
+        title: "Chain-of-Custody Accountability",
         description:
-          "Handling sporadic connectivity from edge sensors by buffering sensor event payloads with idempotency keys.",
+          "Ensuring waste batch records accurately reflect movement history when QR codes are scanned at transfer points.",
       },
       {
-        title: "Audit Trail Integrity",
+        title: "Audit Trail Clarity",
         description:
-          "Structuring compliance logs with strict read-only audit triggers to prevent retrospective tampering.",
+          "Structuring digital records so facilities and compliance officers can review historical waste movements without relying on paper logs.",
       },
     ],
+    repositoryUrl: "https://github.com/KalendraYadav/biotrackReal.git",
+    liveUrl: "https://biotrack-frontend-xhrr.onrender.com",
     hasDetailedCaseStudy: true,
   },
   {
     id: "netravaha",
-    slug: "netravaha",
-    name: "NetraVaha",
-    tagline: "Computer vision and mobility intelligence platform for assistive visual navigation.",
-    category: "Computer Vision & AI",
+    slug: "netrava",
+    name: "NETRAVA",
+    tagline:
+      "An AI-powered CCTV intelligence platform that helps police identify vehicles, read number plates, and search for suspicious or stolen vehicles across camera footage—without manually reviewing hours of recordings.",
+    category: "AI-Powered CCTV Intelligence",
     role: "Full-Stack & Pipeline Design",
     status: "PROTOTYPE",
-    statusLabel: "PROTOTYPE",
+    statusLabel: "WORKING PROTOTYPE",
     featured: true,
     accentVariant: "yellow",
-    technologies: ["Python", "OpenCV", "TensorFlow", "React", "FastAPI", "WebSockets"],
+    technologies: ["Python", "OpenCV", "TensorFlow", "React", "FastAPI"],
     problemStatement:
-      "Pedestrian navigation in unstructured environments requires low-latency spatial perception and real-time obstacle avoidance feedback without heavy cloud dependency.",
+      "Instead of relying entirely on officers to watch and search CCTV footage, NETRAVA uses computer vision to extract useful information from camera feeds and make vehicle searches faster and more efficient.",
     solutionOverview:
-      "Architected a lightweight visual inference pipeline that processes streaming camera feeds, detects pathway anomalies, and generates directional audio-haptic cues.",
+      "Uses computer vision and deep learning models to analyze CCTV video streams, identify vehicles, extract number-plate text, and enable investigative queries without requiring manual inspection of extensive recordings.",
     architectureDetails: [
-      "Optimized model inference pipeline designed for edge compute constraints.",
-      "WebSocket streaming protocol for sub-100ms spatial alert transmission.",
-      "Accessible operator dashboard designed with high-contrast tactile feedback.",
+      "Video ingestion and frame extraction pipeline for analyzing camera footage.",
+      "Computer vision models trained for vehicle detection and license plate recognition.",
+      "Search interface allowing investigators to query detected vehicles and review footage timestamps.",
     ],
     keyChallenges: [
       {
-        title: "Inference Latency Optimization",
+        title: "Detection Accuracy Across Varied Conditions",
         description:
-          "Reducing frame processing latency by downsampling non-critical video frames while maintaining obstacle edge precision.",
+          "Handling variations in camera angles, lighting conditions, and video resolution when detecting vehicles and plates.",
       },
       {
-        title: "Real-Time State Synchronization",
+        title: "Search Efficiency Over Video Streams",
         description:
-          "Managing persistent bidirectional WebSocket connections during frequent client network handoffs.",
+          "Indexing extracted vehicle metadata so investigators can quickly locate footage of interest without re-scanning raw video.",
       },
     ],
+    repositoryUrl: "https://github.com/KalendraYadav/gujcamera",
+    liveUrl: "https://gujcamera.vercel.app",
     hasDetailedCaseStudy: true,
   },
   {

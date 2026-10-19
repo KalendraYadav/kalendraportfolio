@@ -31,6 +31,12 @@ export interface ContactConfig {
 export interface SiteConfig {
   name: string;
   brand: string;
+  logo: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
   role: string;
   tagline: string;
   location: string;
@@ -52,24 +58,29 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: "Kalendra Yadav",
-  brand: "KALENDRA.DEV",
-  role: "Full-Stack Software Engineer",
-  tagline: "Architecting resilient systems, high-performance web products, and interactive digital experiences with unapologetic precision.",
+  brand: "Kalendra Yadav",
+  logo: {
+    src: "/images/brand/logo.png",
+    alt: "Kalendra Yadav",
+    width: 570,
+    height: 455,
+  },
+  role: "Frontend Developer · Full-Stack Explorer",
+  tagline: "Building resilient software systems, high-performance web applications, and intuitive digital experiences.",
   location: "India",
   navItems: [
-    { label: "Home", href: "/#home", isAnchor: true, sectionStatus: "ready" },
-    { label: "Projects", href: "/#projects", isAnchor: true, sectionStatus: "ready" },
-    { label: "Skills", href: "/#skills", isAnchor: true, sectionStatus: "ready" },
-    { label: "Experience", href: "/#experience", isAnchor: true, sectionStatus: "ready" },
-    { label: "About", href: "/#about", isAnchor: true, sectionStatus: "ready" },
-    { label: "Contact", href: "/#contact", isAnchor: true, sectionStatus: "ready" },
-    { label: "Design System", href: "/design-system", isAnchor: false, badge: "DEV" },
+    { label: "Home", href: "/", isAnchor: false, sectionStatus: "ready" },
+    { label: "Projects", href: "/projects", isAnchor: false, sectionStatus: "ready" },
+    { label: "Skills", href: "/skills", isAnchor: false, sectionStatus: "ready" },
+    { label: "Experience", href: "/experience", isAnchor: false, sectionStatus: "ready" },
+    { label: "About", href: "/about", isAnchor: false, sectionStatus: "ready" },
+    { label: "Contact", href: "/contact", isAnchor: false, sectionStatus: "ready" },
   ],
   contact: {
     email: {
-      address: "contact@kalendrayadav.dev",
-      verified: false,
-      unavailableNotice: "Official contact address is currently pending DNS setup. Update 'verified: true' in src/config/site.ts to activate copy & direct mail actions.",
+      address: "kalendrak527@gmail.com",
+      verified: true,
+      unavailableNotice: "Primary contact email address for Kalendra Yadav.",
     },
     headline: "Let's build something durable.",
     subheading: "Available for full-time engineering roles, high-impact contract systems, and technical collaboration.",
@@ -77,34 +88,40 @@ export const siteConfig: SiteConfig = {
     statusText: "AVAILABLE FOR ROLES",
   },
   resume: {
-    isAvailable: false,
-    url: "/documents/kalendra-yadav-resume.pdf",
-    label: "Résumé",
-    notice: "The official résumé PDF will be available upon launch. Please reach out via email for early access.",
+    isAvailable: true,
+    url: "/resume/kalendra-yadav-resume.pdf",
+    label: "RÉSUMÉ",
+    notice: "Official résumé PDF is available for viewing and download.",
   },
   portrait: {
-    src: "/images/portrait/placeholder-avatar.svg",
-    alt: "Kalendra Yadav - Full-Stack Software Engineer pop-art duotone portrait",
-    isPlaceholder: true,
+    src: "/images/portrait/kalendra-pop-art.jpg",
+    alt: "Pop-art portrait of Kalendra Yadav",
+    isPlaceholder: false,
   },
   profiles: [
     {
       platform: "GitHub",
       label: "GitHub",
-      url: "https://github.com",
-      verified: false,
+      url: "https://github.com/KalendraYadav",
+      verified: true,
     },
     {
       platform: "LinkedIn",
       label: "LinkedIn",
-      url: "https://linkedin.com",
-      verified: false,
+      url: "https://www.linkedin.com/in/kalendra-yadav",
+      verified: true,
+    },
+    {
+      platform: "LeetCode",
+      label: "LeetCode",
+      url: "https://leetcode.com/u/KalendraYadav0/",
+      verified: true,
     },
     {
       platform: "Email",
-      label: "Contact Email",
-      url: "mailto:contact@kalendrayadav.dev",
-      verified: false,
+      label: "Email",
+      url: "mailto:kalendrak527@gmail.com?subject=Engineering%20Inquiry",
+      verified: true,
     },
   ],
 };

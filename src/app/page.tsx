@@ -1,46 +1,29 @@
 import React from "react";
 import {
   HeroSection,
-  ProjectsSection,
-  SkillsSection,
-  ExperienceSection,
-  AboutSection,
-  ContactSection,
+  PersonalIntroSection,
+  HowIBuildSection,
+  FeaturedProjectsTeaser,
+  HomeCtaSection,
 } from "@/components/sections";
-import { Marquee } from "@/components/ui";
 
 export default function Home() {
   return (
-    <main id="main-content" className="flex-1">
-      {/* Infinite Running Marquee Ticker */}
-      <Marquee
-        items={[
-          "KALENDRA YADAV",
-          "FULL-STACK SOFTWARE ENGINEER",
-          "BUILDING DIGITAL SYSTEMS",
-          "NEO-BRUTALISM + POP ART",
-          "VERIFIED CODE ONLY",
-        ]}
-        variant="dark"
-      />
-
-      {/* Signature Phase 5 Hero Section (#home) */}
+    <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
+      {/* 1. Approved Signature Hero Section */}
       <HeroSection />
 
-      {/* Real Phase 6 Projects Section (#projects) */}
-      <ProjectsSection />
+      {/* 2. Short Personal Introduction */}
+      <PersonalIntroSection />
 
-      {/* Real Phase 7 Skills Matrix Section (#skills) */}
-      <SkillsSection />
+      {/* 3. "A Little About How I Build" Principles */}
+      <HowIBuildSection />
 
-      {/* Real Phase 7 Experience & Engineering Timeline Section (#experience) */}
-      <ExperienceSection />
+      {/* 4. Small Featured-Projects Teaser */}
+      <FeaturedProjectsTeaser />
 
-      {/* Real Phase 7 About & Engineering Philosophy Section (#about) */}
-      <AboutSection />
-
-      {/* Real Phase 8 Contact & Collaboration Hub (#contact) */}
-      <ContactSection />
+      {/* 5. Closing Navigation Call to Action */}
+      <HomeCtaSection />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono, Caveat } from "next/font/google";
 import { Navbar, Footer, SkipToContent } from "@/components/layout";
+import { FloatingAvatar } from "@/components/avatar";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
@@ -22,7 +23,14 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kalendrayadav.dev";
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://kalendrayadav.dev";
+const siteUrl = rawSiteUrl.replace(/\/+$/, "");
 
 export const viewport: Viewport = {
   themeColor: "#FFE600",
@@ -51,6 +59,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -65,8 +76,11 @@ export const metadata: Metadata = {
     description: siteConfig.tagline,
   },
   icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/brand/logo-icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/images/brand/logo-icon.png",
   },
   robots: {
     index: true,
@@ -89,12 +103,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
+      data-scroll-behavior="smooth"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${caveat.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-body bg-canvas-cream text-ink-black antialiased selection:bg-cyber-yellow selection:text-ink-black">
         <SkipToContent />
         <Navbar />
         {children}
+        <FloatingAvatar />
         <Footer />
       </body>
     </html>

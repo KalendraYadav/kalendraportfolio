@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
-  <!-- Offset Hard Shadow -->
-  <rect x="4" y="4" width="42" height="42" fill="#0A0A0A" />
-  <!-- Neo-Brutalist Cyber Yellow Face -->
-  <rect x="2" y="2" width="42" height="42" fill="#FFE600" stroke="#0A0A0A" stroke-width="3" />
-  <!-- Bold KY Lettermark -->
-  <text x="23" y="31" font-family="monospace, sans-serif" font-weight="900" font-size="22" fill="#0A0A0A" text-anchor="middle" letter-spacing="-1">KY</text>
-</svg>

@@ -18,12 +18,36 @@ export function ResumeNoticeModal({
   title = "Official Résumé Coming Soon",
   notice = siteConfig.resume.notice,
 }: ResumeNoticeModalProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         onClose();
+        return;
+      }
+
+      if (e.key === "Tab" && dialogRef.current) {
+        const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
       }
     },
     [onClose]
@@ -54,15 +78,18 @@ export function ResumeNoticeModal({
       aria-modal="true"
       aria-labelledby="resume-modal-title"
       aria-describedby="resume-modal-desc"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-ink-black/70 backdrop-blur-none"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-ink-black/70 backdrop-blur-none"
     >
       {/* Backdrop Dismiss */}
       <div className="fixed inset-0 -z-10" onClick={onClose} aria-hidden="true" />
 
       {/* Modal Dialog Box */}
-      <div className="relative w-full max-w-md bg-surface-white border-4 border-ink-black shadow-brutal-xl flex flex-col overflow-hidden outline-none animate-in fade-in zoom-in-95 duration-150">
+      <div
+        ref={dialogRef}
+        className="relative w-full max-w-md bg-surface-white border-3 sm:border-4 border-ink-black shadow-brutal-xl flex flex-col overflow-hidden outline-none animate-in fade-in zoom-in-95 duration-150"
+      >
         {/* Retro Window Header Strip */}
-        <div className="flex items-center justify-between border-b-3 border-ink-black bg-ink-black text-surface-white px-4 py-2.5 select-none shrink-0">
+        <div className="flex items-center justify-between border-b-3 border-ink-black bg-ink-black text-surface-white px-3 sm:px-4 py-2 sm:py-2.5 select-none shrink-0">
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1.5" aria-hidden="true">
               <span className="w-2.5 h-2.5 rounded-full bg-pop-red border border-ink-black" />
@@ -70,7 +97,7 @@ export function ResumeNoticeModal({
               <span className="w-2.5 h-2.5 rounded-full bg-accent-green border border-ink-black" />
             </div>
             <span className="font-mono text-xs font-bold uppercase tracking-wider text-surface-white">
-              {"DOC // CV_STATUS_NOTICE"}
+              Résumé Status
             </span>
           </div>
 
@@ -79,7 +106,7 @@ export function ResumeNoticeModal({
             type="button"
             onClick={onClose}
             aria-label="Close résumé notice dialog"
-            className="p-1 border border-surface-white text-surface-white hover:bg-pop-red hover:text-surface-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-yellow transition-colors cursor-pointer"
+            className="p-1.5 border border-surface-white text-surface-white hover:bg-pop-red hover:text-surface-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyber-yellow transition-colors cursor-pointer min-w-[36px] min-h-[36px] sm:min-w-[40px] sm:min-h-[40px] flex items-center justify-center"
           >
             <X className="w-4 h-4" aria-hidden="true" />
           </button>
