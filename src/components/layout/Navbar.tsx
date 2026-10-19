@@ -8,6 +8,17 @@ import { siteConfig } from "@/config/site";
 import { Button, Badge } from "@/components/ui";
 import { Menu, X, FileText } from "lucide-react";
 
+const getNavTrigger = (href: string) => {
+  if (href === "/") return "nav-home";
+  if (href.includes("/projects")) return "nav-projects";
+  if (href.includes("/skills")) return "nav-skills";
+  if (href.includes("/experience")) return "nav-experience";
+  if (href.includes("/achievements")) return "nav-achievements";
+  if (href.includes("/about")) return "nav-about";
+  if (href.includes("/contact")) return "nav-contact";
+  return undefined;
+};
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -73,6 +84,7 @@ export function Navbar() {
               href="/"
               onClick={closeMenu}
               aria-label={`${siteConfig.name} - Home`}
+              data-avatar-trigger="nav-home"
               className="inline-flex items-center p-1 border-2 border-transparent hover:border-ink-black hover:bg-cyber-yellow/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black transition-all select-none"
             >
               <Image
@@ -88,7 +100,7 @@ export function Navbar() {
             {/* Desktop Navigation */}
             <nav
               aria-label="Primary navigation"
-              className="hidden lg:flex items-center gap-3 xl:gap-5"
+              className="hidden lg:flex items-center gap-1.5 xl:gap-3.5"
             >
               {siteConfig.navItems.map((item) => {
                 const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
@@ -96,8 +108,9 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    data-avatar-trigger={getNavTrigger(item.href)}
                     aria-current={isActive ? "page" : undefined}
-                    className={`font-mono text-sm font-bold uppercase tracking-wider px-2.5 py-1.5 transition-all inline-flex items-center gap-1.5 border-2 ${
+                    className={`font-mono text-xs xl:text-sm font-bold uppercase tracking-wider px-2 xl:px-2.5 py-1.5 transition-all inline-flex items-center gap-1.5 border-2 ${
                       isActive
                         ? "bg-cyber-yellow text-ink-black border-ink-black shadow-brutal-sm"
                         : "border-transparent text-ink-black hover:bg-cyber-yellow hover:border-ink-black"
@@ -124,6 +137,7 @@ export function Navbar() {
                 variant="outline"
                 size="sm"
                 icon={<FileText className="w-4 h-4" />}
+                data-avatar-trigger="nav-resume"
                 aria-label="Open Kalendra Yadav Résumé PDF in a new tab"
                 title="Open Résumé (PDF) in new tab"
               >
@@ -172,6 +186,7 @@ export function Navbar() {
                     key={item.href}
                     href={item.href}
                     onClick={closeMenu}
+                    data-avatar-trigger={getNavTrigger(item.href)}
                     aria-current={isActive ? "page" : undefined}
                     className={`font-mono text-base font-bold uppercase tracking-wider p-3 border-2 border-ink-black transition-all flex items-center justify-between ${
                       isActive
@@ -203,6 +218,7 @@ export function Navbar() {
                 variant="outline"
                 fullWidth
                 icon={<FileText className="w-4 h-4" />}
+                data-avatar-trigger="nav-resume"
                 onClick={closeMenu}
                 aria-label="Open Kalendra Yadav Résumé PDF in a new tab"
                 title="Open Résumé (PDF) in new tab"

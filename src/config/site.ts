@@ -73,6 +73,7 @@ export const siteConfig: SiteConfig = {
     { label: "Projects", href: "/projects", isAnchor: false, sectionStatus: "ready" },
     { label: "Skills", href: "/skills", isAnchor: false, sectionStatus: "ready" },
     { label: "Experience", href: "/experience", isAnchor: false, sectionStatus: "ready" },
+    { label: "Achievements", href: "/achievements", isAnchor: false, sectionStatus: "ready" },
     { label: "About", href: "/about", isAnchor: false, sectionStatus: "ready" },
     { label: "Contact", href: "/contact", isAnchor: false, sectionStatus: "ready" },
   ],

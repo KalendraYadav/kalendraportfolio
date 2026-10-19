@@ -90,7 +90,8 @@ export function PersonalIntroSection() {
             <div className="pt-3 border-t-2 border-ink-black/15">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-ink-black hover:text-cobalt-blue hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black transition-colors"
+                data-avatar-trigger="nav-about"
+                className="inline-flex items-center gap-2 flex-wrap font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-ink-black hover:text-cobalt-blue hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black transition-colors py-1 min-h-[36px]"
               >
                 <span>READ MORE ABOUT MY PHILOSOPHY &amp; BACKGROUND</span>
                 <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />

@@ -12,6 +12,7 @@ export function BackToTopButton() {
     <button
       type="button"
       onClick={scrollToTop}
+      data-avatar-trigger="back-to-top"
       aria-label="Scroll back to top of page"
       className="inline-flex items-center gap-2 font-mono text-xs md:text-sm font-bold uppercase tracking-wider bg-cyber-yellow text-ink-black border-2 border-ink-black px-4 py-2.5 min-h-[44px] shadow-brutal-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brutal-md active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2"
     >

@@ -87,6 +87,7 @@ export function HeroSection() {
                 variant="primary"
                 size="lg"
                 icon={<ArrowDownRight className="w-5 h-5" />}
+                data-avatar-trigger="explore-projects"
                 className="w-full sm:w-auto text-center"
               >
                 EXPLORE PROJECTS
@@ -96,6 +97,7 @@ export function HeroSection() {
                 variant="secondary"
                 size="lg"
                 icon={<Mail className="w-5 h-5" />}
+                data-avatar-trigger="get-in-touch"
                 className="w-full sm:w-auto text-center"
               >
                 GET IN TOUCH

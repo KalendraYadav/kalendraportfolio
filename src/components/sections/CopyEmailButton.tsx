@@ -62,6 +62,7 @@ export function CopyEmailButton({ email, className = "" }: CopyEmailButtonProps)
       <button
         type="button"
         onClick={handleCopy}
+        data-avatar-trigger={copyStatus === "success" ? "action-copy-email" : "channel-email"}
         aria-label={`Copy email address ${email} to clipboard`}
         className={`inline-flex items-center justify-center gap-2 font-display font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-ink-black px-4 py-2.5 min-h-[44px] w-full sm:w-auto transition-all shadow-brutal-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brutal-md active:translate-x-0.5 active:translate-y-0.5 active:shadow-none cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black focus-visible:ring-offset-2 ${
           copyStatus === "success"

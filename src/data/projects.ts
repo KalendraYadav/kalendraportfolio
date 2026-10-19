@@ -145,66 +145,44 @@ export const projectsData: Project[] = [
           "Implementing optimistic rollback mechanisms when backend API validation fails during rapid user interactions.",
       },
     ],
+    repositoryUrl: "https://github.com/KalendraYadav/Nexa.git",
     hasDetailedCaseStudy: true,
   },
   {
-    id: "vyomcare",
-    slug: "vyomcare",
-    name: "VyomCare",
-    tagline: "Telemedicine consultation triage and patient record management system.",
-    category: "Telemedicine Systems",
-    role: "Full-Stack Development",
-    status: "CASE_STUDY",
-    statusLabel: "CASE STUDY",
+    id: "pdf-merger",
+    slug: "pdf-merger",
+    name: "PDF Merger",
+    tagline:
+      "A fast, privacy-focused browser utility for combining, reordering, and organizing multiple PDF documents entirely on the client side.",
+    category: "Web Platform & Tooling",
+    role: "Frontend Development & Client Architecture",
+    status: "PROTOTYPE",
+    statusLabel: "WORKING UTILITY",
     featured: false,
     accentVariant: "pink",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "WebRTC", "Tailwind CSS"],
+    technologies: ["JavaScript", "pdf-lib", "HTML5 Drag & Drop", "CSS3"],
     problemStatement:
-      "Remote healthcare delivery faces friction in patient intake, reliable video link establishment, and synchronized clinical consultation notes.",
+      "Merging PDF files often requires uploading sensitive documents to third-party cloud services or installing heavy desktop software, introducing privacy concerns and unnecessary network latency for simple file management tasks.",
     solutionOverview:
-      "Created a streamlined patient consultation portal integrating secure room negotiation, pre-consultation triage questionnaires, and structured prescription outputs.",
+      "Built a lightweight client-side application using pdf-lib that executes document parsing, page extraction, drag-and-drop sequence reordering, and file merging directly within browser memory with zero server uploads.",
     architectureDetails: [
-      "Peer-to-peer WebRTC signaling server with automatic fallback relays.",
-      "Structured clinical record schema with strict patient privacy constraints.",
-      "Responsive patient intake interface operable on low-bandwidth mobile connections.",
+      "Client-side document parsing and concatenation using pdf-lib and ArrayBuffer streams without server-side processing.",
+      "Interactive HTML5 drag-and-drop sequence management allowing users to reorder and remove documents before merging.",
+      "In-browser binary export generating downloadable PDF Blobs with immediate ObjectURL memory cleanup.",
     ],
     keyChallenges: [
       {
-        title: "Low-Bandwidth Session Stability",
+        title: "Client-Side Memory Management",
         description:
-          "Gracefully degrading video resolution to prioritize crystal-clear audio during fluctuating cellular signals in rural regions.",
+          "Handling large binary document buffers in browser memory while avoiding memory leaks through timely URL.revokeObjectURL cleanup.",
       },
-    ],
-    hasDetailedCaseStudy: true,
-  },
-  {
-    id: "automate-com",
-    slug: "automate-com",
-    name: "Automate.com",
-    tagline: "Event-driven workflow orchestration engine for developer operations.",
-    category: "Workflow Automation",
-    role: "Backend & Systems Design",
-    status: "IN_DEVELOPMENT",
-    statusLabel: "IN DEVELOPMENT",
-    featured: false,
-    accentVariant: "white",
-    technologies: ["TypeScript", "Node.js", "Docker", "Redis", "Event Bus"],
-    problemStatement:
-      "Repetitive deployment verification tasks and multi-service health checks create operational friction when maintained via ad-hoc shell scripts.",
-    solutionOverview:
-      "Designed a declarative task runner that triggers sequential and parallel verification stages based on Git events and webhook payloads.",
-    architectureDetails: [
-      "Directed Acyclic Graph (DAG) execution engine for dependency-aware task scheduling.",
-      "Redis-backed queue worker for distributed task dispatch.",
-      "Standardized log output streamer with real-time process monitoring.",
-    ],
-    keyChallenges: [
       {
-        title: "Deadlock Prevention in Task DAGs",
+        title: "Predictable Page Reordering",
         description:
-          "Cycle detection algorithms executed during workflow parsing to reject invalid circular dependency graphs.",
+          "Maintaining an accurate, synchronized document sequence state during drag-and-drop interactions to guarantee exact page ordering in the final output.",
       },
     ],
+    repositoryUrl: "https://github.com/KalendraYadav/pdf_merger.git",
     hasDetailedCaseStudy: true,
   },
 ];

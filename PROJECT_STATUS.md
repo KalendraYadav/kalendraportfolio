@@ -282,5 +282,50 @@
 
 ---
 
-## 15. Next Planned Action
-- **Production Launch**: Connect the custom production domain, provide the official 1-page résumé PDF (`/public/documents/kalendra-yadav-resume.pdf`), configure active public email and social profile handles in `src/config/site.ts`, and deploy the repository to Vercel.
+## 15. Experience Architecture & Verifiable Evidence System (Completed)
+- **Content Integrity Audit**:
+  - Removed all unverified personal projects masquerading as employment/systems milestones (`automate-workflow`, `nexa-platform`, `netravaha-cv`, `biotrace-iot`).
+  - Preserved authentic academic foundation: Dronacharya Group of Institutions (B.Tech in Computer Science & Engineering, Greater Noida, 2025–2029).
+- **AMDox Technologies Internship Entry**:
+  - Role: Web Development Intern.
+  - Duration: Strictly 1 Month (12 April 2026 — 12 May 2026) verified directly against certificate issue dates.
+  - Work Arrangement: Remote.
+  - Human Early-Career Description: Focuses honestly on web development workflows, debugging routines, maintainable code, and collaboration using HTML5, CSS3, JavaScript, Git, and GitHub.
+- **Expandable Evidence & Accessible Lightbox**:
+  - Collapsed by default: Experience page remains compact and readable without reserving empty space.
+  - Accessible disclosure button with `aria-expanded` and `aria-controls`.
+  - 2 Verified Certificates Placed & Integrated:
+    1. Certificate of Internship (`/images/experience/amdox/amdox-internship-certificate.png` - ID: `adx/jxolel70v4`)
+    2. Certificate of Training (`/images/experience/amdox/amdox-training-certificate.png` - ID: `adx/bv8OpAfnsr`)
+  - Created `src/components/sections/EvidenceLightboxModal.tsx` for full-resolution inspection with Escape dismissal, focus trapping, and background scroll locking.
+  - Concise & Punchy Content: Eliminated long walls of text so the certificates and authentic deliverables speak for themselves.
+- **Data-Driven Architecture**:
+  - `src/data/experience.ts`: Typed `ExperienceEntry` and `ExperienceEvidenceItem` models enabling straightforward addition of future internships and roles.
+- **Validation Results**:
+  - `npm run lint`: PASSED (0 errors, 0 warnings).
+  - `npm run build`: PASSED (13 static pages compiled including `/experience`).
+  - Asset Delivery: HTTP 200 confirmed for both certificates and the experience route.
+
+---
+
+## 16. Dedicated Achievements & Recognition Architecture (Completed)
+- **Clear Information Architecture Separation**:
+  - `Experience` remains strictly dedicated to professional employment, internships (AMDox Technologies), and academic foundations.
+  - `Achievements` is a dedicated page focused exclusively on competition placements, hackathon wins, honors, awards, and distinctions.
+- **Dedicated Route & Navigation**:
+  - Created `/achievements` with full Next.js App Router static pre-rendering, sitemap integration, and metadata.
+  - Centralized navigation configured in `src/config/site.ts` with exact sequence: Home -> Projects -> Skills -> Experience -> Achievements -> About -> Contact.
+  - Desktop navbar fitted with optimized responsive spacing; mobile drawer navigation and footer updated seamlessly.
+- **Data-Driven Architecture**:
+  - `src/data/achievements.ts`: Typed `Achievement` and `AchievementCategory` interfaces for future additions.
+  - Content Integrity: Zero fake awards or placeholder brackets. Features an intentional neo-brutalist empty state (*"Every achievement starts with a challenge. New milestones will appear here as I earn them."*) when array is empty.
+  - Created `AchievementCard.tsx` with expandable evidence disclosure and lightbox integration.
+- **Validation Results**:
+  - `npm run lint`: PASSED (0 errors, 0 warnings).
+  - `npm run build`: PASSED (14 static pages generated including `/achievements`).
+  - Route Verification: All 7 routes return HTTP 200 OK.
+
+---
+
+## 17. Next Planned Action
+- **Ongoing Milestones**: Add verified hackathon or competition records and certificates to `src/data/achievements.ts` as they are earned.

@@ -31,7 +31,7 @@ export function ProjectsSection({ headingAs = "h2" }: ProjectsSectionProps = {})
 
   // Strictly select documented flagship projects (BioTrace and NetraVaha)
   const featuredProjects = projectsData.filter((p) => p.featured);
-  // Remaining documented projects (Nexa, VyomCare, Automate.com)
+  // Remaining documented projects (Nexa, PDF Merger)
   const supportingProjects = projectsData.filter((p) => !p.featured);
 
   const HeadingComponent = headingAs;
@@ -51,7 +51,7 @@ export function ProjectsSection({ headingAs = "h2" }: ProjectsSectionProps = {})
               ENGINEERING BODY OF WORK
             </span>
             <span className="font-mono text-xs text-text-muted font-bold tracking-wider uppercase">
-              · 5 DOCUMENTED SYSTEMS
+              · {projectsData.length} DOCUMENTED SYSTEMS
             </span>
           </div>
 
@@ -107,7 +107,7 @@ export function ProjectsSection({ headingAs = "h2" }: ProjectsSectionProps = {})
           </div>
         </div>
 
-        {/* C. REMAINING PROJECTS (3 Projects in a balanced 3-column layout) */}
+        {/* C. REMAINING PROJECTS (Balanced 2-column layout) */}
         <div className="space-y-6 pt-4">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b-3 border-ink-black pb-3">
             <div className="space-y-1">
@@ -119,11 +119,11 @@ export function ProjectsSection({ headingAs = "h2" }: ProjectsSectionProps = {})
               </h3>
             </div>
             <span className="font-mono text-xs font-bold text-text-muted">
-              3 Production &amp; Tooling Builds
+              {supportingProjects.length} Production &amp; Tooling Builds
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
             {supportingProjects.map((project) => (
               <ProjectCard
                 key={project.id}
@@ -156,6 +156,7 @@ export function ProjectsSection({ headingAs = "h2" }: ProjectsSectionProps = {})
                 variant="primary"
                 size="md"
                 icon={<Mail className="w-4 h-4" />}
+                data-avatar-trigger="get-in-touch"
                 className="w-full sm:w-auto text-center"
               >
                 GET IN TOUCH
@@ -165,6 +166,7 @@ export function ProjectsSection({ headingAs = "h2" }: ProjectsSectionProps = {})
                 variant="secondary"
                 size="md"
                 icon={<ArrowRight className="w-4 h-4" />}
+                data-avatar-trigger="view-experience"
                 className="w-full sm:w-auto text-center hover:bg-canvas-cream"
               >
                 VIEW EXPERIENCE TIMELINE

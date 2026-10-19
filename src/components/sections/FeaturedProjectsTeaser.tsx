@@ -86,9 +86,10 @@ export function FeaturedProjectsTeaser() {
               size="md"
               icon={<ArrowRight className="w-4 h-4" />}
               iconPosition="right"
+              data-avatar-trigger="explore-projects"
               className="w-full md:w-auto hover:bg-cyber-yellow"
             >
-              VIEW ALL PROJECTS (5)
+              {`VIEW ALL PROJECTS (${projectsData.length})`}
             </Button>
           </div>
         </div>
@@ -167,6 +168,7 @@ export function FeaturedProjectsTeaser() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-avatar-trigger="project-demo"
                     className="inline-flex items-center justify-center gap-1.5 font-display font-bold text-xs uppercase tracking-wider border-2 border-ink-black px-3.5 py-2.5 min-h-[44px] bg-cyber-cyan text-ink-black shadow-brutal-sm hover:shadow-brutal-md hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black"
                     aria-label={`Open live deployment for ${project.name} in a new tab`}
                     title="Open live deployment in a new tab"
@@ -182,6 +184,7 @@ export function FeaturedProjectsTeaser() {
                     href={project.repositoryUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-avatar-trigger="project-source"
                     className="inline-flex items-center justify-center gap-1.5 font-display font-bold text-xs uppercase tracking-wider border-2 border-ink-black px-3.5 py-2.5 min-h-[44px] bg-surface-white text-ink-black shadow-brutal-sm hover:bg-cyber-yellow hover:shadow-brutal-md hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black"
                     aria-label={`Open source code repository for ${project.name} in a new tab`}
                     title="Open source code repository in a new tab"
@@ -196,6 +199,7 @@ export function FeaturedProjectsTeaser() {
                   type="button"
                   onClick={(e) => handleOpenCaseStudy(project, e)}
                   aria-haspopup="dialog"
+                  data-avatar-trigger="project-case-study"
                   aria-label={`View technical case study for ${project.name}`}
                   className="inline-flex items-center justify-center gap-1.5 font-display font-bold text-xs uppercase tracking-wider border-2 border-ink-black px-3.5 py-2.5 min-h-[44px] bg-cyber-yellow text-ink-black shadow-brutal-sm hover:shadow-brutal-md hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black"
                 >
@@ -217,8 +221,9 @@ export function FeaturedProjectsTeaser() {
             size="lg"
             icon={<ArrowRight className="w-5 h-5" />}
             iconPosition="right"
+            data-avatar-trigger="explore-projects"
           >
-            VIEW ALL PROJECTS (5)
+            {`VIEW ALL PROJECTS (${projectsData.length})`}
           </Button>
         </div>
       </div>

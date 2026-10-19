@@ -54,6 +54,21 @@ export function ContactSection({ headingAs = "h2" }: ContactSectionProps = {}) {
     }
   };
 
+  const getChannelTrigger = (platform: string) => {
+    switch (platform.toLowerCase()) {
+      case "github":
+        return "channel-github";
+      case "linkedin":
+        return "channel-linkedin";
+      case "leetcode":
+        return "channel-leetcode";
+      case "email":
+        return "channel-email";
+      default:
+        return undefined;
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -179,6 +194,7 @@ export function ContactSection({ headingAs = "h2" }: ContactSectionProps = {}) {
                         size="sm"
                         icon={<ExternalLink className="w-3.5 h-3.5" />}
                         className="hover:bg-cyber-yellow"
+                        data-avatar-trigger="channel-email"
                         aria-label={`Send email to ${siteConfig.contact.email.address}`}
                       >
                         Email Me
@@ -243,6 +259,7 @@ export function ContactSection({ headingAs = "h2" }: ContactSectionProps = {}) {
                       variant="primary"
                       size="md"
                       icon={<Download className="w-4 h-4" />}
+                      data-avatar-trigger="channel-resume"
                       className="w-full sm:w-auto text-center"
                     >
                       Download PDF
@@ -252,6 +269,7 @@ export function ContactSection({ headingAs = "h2" }: ContactSectionProps = {}) {
                       variant="outline"
                       size="sm"
                       icon={<FileText className="w-4 h-4" />}
+                      data-avatar-trigger="channel-resume"
                       onClick={() => setResumeModalOpen(true)}
                       className="w-full sm:w-auto text-center"
                     >
@@ -280,6 +298,7 @@ export function ContactSection({ headingAs = "h2" }: ContactSectionProps = {}) {
                         target="_blank"
                         rel="noopener noreferrer"
                         icon={getProfileIcon(profile.platform)}
+                        data-avatar-trigger={getChannelTrigger(profile.platform)}
                         aria-label={`Open ${profile.label} profile in a new tab`}
                       >
                         {profile.label} Profile
@@ -322,6 +341,7 @@ export function ContactSection({ headingAs = "h2" }: ContactSectionProps = {}) {
               size="md"
               icon={<ArrowRight className="w-4 h-4" />}
               iconPosition="right"
+              data-avatar-trigger="explore-projects"
               className="w-full sm:w-auto text-center"
             >
               BROWSE SELECTED PROJECTS
@@ -332,6 +352,7 @@ export function ContactSection({ headingAs = "h2" }: ContactSectionProps = {}) {
               size="md"
               icon={<ArrowRight className="w-4 h-4" />}
               iconPosition="right"
+              data-avatar-trigger="view-skills"
               className="w-full sm:w-auto text-center hover:bg-canvas-cream"
             >
               VIEW SKILLS MATRIX
@@ -341,6 +362,7 @@ export function ContactSection({ headingAs = "h2" }: ContactSectionProps = {}) {
               variant="outline"
               size="md"
               icon={<Home className="w-4 h-4" />}
+              data-avatar-trigger="action-return-home"
               className="w-full sm:w-auto text-center hover:bg-canvas-cream"
             >
               RETURN HOME

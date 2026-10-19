@@ -12,7 +12,7 @@ export function HomeCtaSection() {
       className="w-full relative bg-canvas-cream py-16 sm:py-20 md:py-24 outline-none"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative border-4 border-ink-black bg-cyber-yellow p-8 sm:p-12 md:p-16 shadow-brutal-xl overflow-hidden">
+        <div className="relative border-4 border-ink-black bg-cyber-yellow p-6 sm:p-10 md:p-16 shadow-brutal-xl overflow-hidden">
           {/* Subtle Accent Background Grid */}
           <div
             className="absolute inset-0 pointer-events-none opacity-15"
@@ -57,6 +57,7 @@ export function HomeCtaSection() {
                 size="lg"
                 icon={<ArrowRight className="w-5 h-5" />}
                 iconPosition="right"
+                data-avatar-trigger="explore-projects"
                 className="w-full sm:w-auto text-center"
               >
                 EXPLORE PROJECTS
@@ -67,6 +68,7 @@ export function HomeCtaSection() {
                 variant="secondary"
                 size="lg"
                 icon={<Mail className="w-5 h-5" />}
+                data-avatar-trigger="get-in-touch"
                 className="w-full sm:w-auto text-center shadow-brutal-md hover:bg-canvas-cream"
               >
                 GET IN TOUCH

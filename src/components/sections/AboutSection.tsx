@@ -266,6 +266,7 @@ export function AboutSection({ headingAs = "h2" }: AboutSectionProps = {}) {
               size="md"
               icon={<ArrowRight className="w-4 h-4" />}
               iconPosition="right"
+              data-avatar-trigger="explore-projects"
               className="w-full sm:w-auto text-center"
             >
               EXPLORE PROJECT CASE STUDIES
@@ -275,6 +276,7 @@ export function AboutSection({ headingAs = "h2" }: AboutSectionProps = {}) {
               variant="secondary"
               size="md"
               icon={<Mail className="w-4 h-4" />}
+              data-avatar-trigger="get-in-touch"
               className="w-full sm:w-auto text-center hover:bg-canvas-cream"
             >
               GET IN TOUCH

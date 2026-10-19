@@ -11,3 +11,6 @@ export * from "./ExperienceSection";
 export * from "./AboutSection";
 export * from "./ContactSection";
 export * from "./CopyEmailButton";
+export * from "./EvidenceLightboxModal";
+export * from "./AchievementCard";
+export * from "./AchievementsSection";

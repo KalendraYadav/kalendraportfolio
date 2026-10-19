@@ -4,6 +4,21 @@ import Image from "next/image";
 import { siteConfig, getVerifiedProfiles } from "@/config/site";
 import { BackToTopButton } from "./BackToTopButton";
 
+const getFooterProfileTrigger = (platform: string) => {
+  switch (platform.toLowerCase()) {
+    case "github":
+      return "channel-github";
+    case "linkedin":
+      return "channel-linkedin";
+    case "leetcode":
+      return "channel-leetcode";
+    case "email":
+      return "channel-email";
+    default:
+      return undefined;
+  }
+};
+
 export function Footer() {
   const currentYear = 2026;
   const verifiedProfiles = getVerifiedProfiles();
@@ -16,6 +31,7 @@ export function Footer() {
           <div className="space-y-2">
             <Link
               href="/"
+              data-avatar-trigger="nav-home"
               className="inline-flex items-center gap-3 font-display font-black text-2xl md:text-3xl tracking-tighter text-ink-black hover:bg-cyber-yellow px-2 py-1 border-2 border-transparent hover:border-ink-black transition-all"
             >
               <Image
@@ -34,12 +50,12 @@ export function Footer() {
 
           {/* Quick Route Navigation */}
           <nav aria-label="Footer navigation" className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs font-bold uppercase tracking-wider text-text-muted">
-            <Link href="/projects" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Projects</Link>
-            <Link href="/skills" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Skills</Link>
-            <Link href="/experience" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Experience</Link>
-            <Link href="/about" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">About</Link>
-            <Link href="/contact" className="hover:text-ink-black hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Contact</Link>
-            <Link href="/design-system" className="hover:text-ink-black text-cobalt-blue hover:underline py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Design System</Link>
+            <Link href="/projects" data-avatar-trigger="nav-projects" className="hover:text-ink-black hover:underline py-2 px-1 min-h-[36px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Projects</Link>
+            <Link href="/skills" data-avatar-trigger="nav-skills" className="hover:text-ink-black hover:underline py-2 px-1 min-h-[36px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Skills</Link>
+            <Link href="/experience" data-avatar-trigger="nav-experience" className="hover:text-ink-black hover:underline py-2 px-1 min-h-[36px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Experience</Link>
+            <Link href="/achievements" data-avatar-trigger="nav-achievements" className="hover:text-ink-black hover:underline py-2 px-1 min-h-[36px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Achievements</Link>
+            <Link href="/about" data-avatar-trigger="nav-about" className="hover:text-ink-black hover:underline py-2 px-1 min-h-[36px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">About</Link>
+            <Link href="/contact" data-avatar-trigger="nav-contact" className="hover:text-ink-black hover:underline py-2 px-1 min-h-[36px] inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black">Contact</Link>
           </nav>
 
           {/* Back to Top Action */}
@@ -61,6 +77,7 @@ export function Footer() {
                   <a
                     key={profile.platform}
                     href={profile.url}
+                    data-avatar-trigger={getFooterProfileTrigger(profile.platform)}
                     target={isMailto ? undefined : "_blank"}
                     rel={isMailto ? undefined : "noopener noreferrer"}
                     className="hover:text-ink-black hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black px-1 py-0.5"

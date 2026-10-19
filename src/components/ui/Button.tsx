@@ -42,7 +42,7 @@ const variantStyles: Record<ButtonVariant, string> = {
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: "text-xs px-3 py-1.5 gap-1.5 border-2 min-h-[38px] sm:min-h-[36px]",
+  sm: "text-xs px-3 py-2 sm:py-1.5 gap-1.5 border-2 min-h-[40px] sm:min-h-[36px]",
   md: "text-sm md:text-base px-5 py-2.5 gap-2 border-3 min-h-[44px]",
   lg: "text-base md:text-lg px-7 py-3.5 gap-2.5 border-3 min-h-[48px]",
 };
@@ -92,16 +92,12 @@ export function Button({
     if (external || props.target === "_blank" || isSpecialProtocol) {
       return (
         <a
+          {...(props as unknown as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
           href={href}
           target={props.target || (isSpecialProtocol ? undefined : "_blank")}
           rel={props.rel || (isSpecialProtocol ? undefined : "noopener noreferrer")}
           className={baseStyles}
           aria-disabled={disabled}
-          title={props.title}
-          aria-label={props["aria-label"]}
-          onClick={
-            props.onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>
-          }
         >
           {content}
         </a>
@@ -110,14 +106,10 @@ export function Button({
 
     return (
       <Link
+        {...(props as unknown as React.ComponentPropsWithoutRef<typeof Link>)}
         href={href}
         className={baseStyles}
         aria-disabled={disabled}
-        title={props.title}
-        aria-label={props["aria-label"]}
-        onClick={
-          props.onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>
-        }
       >
         {content}
       </Link>

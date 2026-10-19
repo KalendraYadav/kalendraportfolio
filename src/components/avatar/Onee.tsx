@@ -2,9 +2,9 @@
 
 import { forwardRef, useEffect, useImperativeHandle, useRef, type CSSProperties } from 'react'
 import { loadAvatarRuntime, type RuntimeAvatar } from './avatar-runtime'
-import { avatarData, type AnimationName } from './onee.avatar'
+import { avatarData, type AnimationName } from './onee.aqua.avatar'
 
-export type { AnimationName } from './onee.avatar'
+export type { AnimationName } from './onee.aqua.avatar'
 export type AvatarHandle = {
   play: (animation?: AnimationName) => void
   pause: () => void
@@ -15,6 +15,7 @@ export type AvatarProps = {
   playing?: boolean
   loop?: boolean
   size?: number | string
+  viewBox?: string
   className?: string
   style?: CSSProperties
   onAnimationEnd?: (animation: AnimationName) => void
@@ -26,6 +27,7 @@ export const Onee = forwardRef<AvatarHandle, AvatarProps>(function Onee(
     playing = true,
     loop,
     size = 240,
+    viewBox,
     className,
     style,
     onAnimationEnd,
@@ -52,6 +54,7 @@ export const Onee = forwardRef<AvatarHandle, AvatarProps>(function Onee(
         autoplay: playingRef.current,
         loop,
         size: '100%',
+        viewBox,
         onAnimationEnd: next => onAnimationEndRef.current?.(next),
       })
       controller.current = avatar
@@ -61,7 +64,7 @@ export const Onee = forwardRef<AvatarHandle, AvatarProps>(function Onee(
       avatar?.destroy()
       controller.current = null
     }
-  }, [loop])
+  }, [loop, viewBox])
 
   useEffect(() => {
     const avatar = controller.current

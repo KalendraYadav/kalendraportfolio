@@ -1,101 +1,120 @@
-export type TimelineCategory = "milestone" | "education" | "experience";
+/**
+ * Data-Driven Professional Experience & Education Records
+ * Kalendra Yadav — Developer Portfolio
+ *
+ * Strict Accuracy Rules:
+ * - AMDox Technologies dates: 12 April 2026 — 12 May 2026 (1 month, matching certificates).
+ * - Supported by verified documentary certificates.
+ * - Simple, concise, punchy writing that lets the evidence speak.
+ */
 
-export interface TimelineEntry {
+export type ExperienceType = "Internship" | "Full-time" | "Part-time" | "Contract" | "Education";
+export type WorkArrangement = "Remote" | "Hybrid" | "On-site";
+export type EvidenceType = "certificate" | "screenshot" | "letter" | "document";
+
+export interface ExperienceEvidenceItem {
   id: string;
   title: string;
-  organizationOrContext: string;
-  category: TimelineCategory;
-  categoryLabel: string;
-  periodOrStatus: string;
+  type: EvidenceType;
+  badgeLabel: string;
+  imageSrc: string;
+  altText: string;
+  description?: string;
+  issueDate?: string;
+  certificateId?: string;
+}
+
+export interface ExperienceEntry {
+  id: string;
+  organization: string;
+  role: string;
+  experienceType: ExperienceType;
+  startDate: string;
+  endDate: string;
+  duration: string;
+  workArrangement?: WorkArrangement;
+  location?: string;
   isOngoing?: boolean;
   accentVariant: "yellow" | "cyan" | "pink" | "blue" | "white";
   description: string;
-  highlights: string[];
+  learningOutcomes?: string[];
+  responsibilities?: string[];
   technologies?: string[];
+  organizationUrl?: string;
+  evidence?: ExperienceEvidenceItem[];
 }
 
-export const experienceTimelineData: TimelineEntry[] = [
+export const experienceEntries: ExperienceEntry[] = [
   {
-    id: "automate-workflow",
-    title: "Event-Driven Workflow Orchestrator",
-    organizationOrContext: "Automate.com · Systems Architecture",
-    category: "milestone",
-    categoryLabel: "SYSTEM MILESTONE",
-    periodOrStatus: "Active Development",
-    isOngoing: true,
+    id: "amdox-internship",
+    organization: "AMDox Technologies",
+    role: "Web Development Intern",
+    experienceType: "Internship",
+    startDate: "12 April 2026",
+    endDate: "12 May 2026",
+    duration: "1 Month (12 Apr 2026 – 12 May 2026)",
+    workArrangement: "Remote",
     accentVariant: "yellow",
     description:
-      "Designed a directed acyclic graph (DAG) task runner for developer operations, managing dependency graphs and asynchronous background workers.",
-    highlights: [
-      "Implemented cycle-detection algorithms to reject circular workflow dependencies.",
-      "Engineered decoupled worker queue processing with state persistence.",
+      "Web Development Internship at AMDox Technologies, focused on core web technologies, debugging, and collaborative Git development workflows.",
+    learningOutcomes: [
+      "Front-end development with HTML5, CSS3, and JavaScript.",
+      "Practical debugging, testing, and code reliability.",
+      "Version control and team collaboration with Git & GitHub.",
+      "Writing clean, readable, and maintainable web code.",
     ],
-    technologies: ["TypeScript", "Node.js", "Docker", "Redis"],
+    technologies: ["HTML5", "CSS3", "JavaScript", "Git", "GitHub"],
+    evidence: [
+      {
+        id: "amdox-internship-cert",
+        title: "Internship Completion Certificate",
+        type: "certificate",
+        badgeLabel: "INTERNSHIP CERTIFICATE",
+        imageSrc: "/images/experience/amdox/amdox-internship-certificate.png",
+        altText:
+          "AMDox Technologies Web Development Certificate of Internship awarded to Kalendra Kumar Yadav (12-04-2026 to 12-05-2026)",
+        description:
+          "Official Certificate of Internship from AMDox Technologies certifying completion of the Web Development internship from 12-04-2026 to 12-05-2026.",
+        issueDate: "17 May 2026",
+        certificateId: "adx/jxolel70v4",
+      },
+      {
+        id: "amdox-training-cert",
+        title: "Certificate of Training",
+        type: "certificate",
+        badgeLabel: "TRAINING CERTIFICATE",
+        imageSrc: "/images/experience/amdox/amdox-training-certificate.png",
+        altText:
+          "AMDox Technologies Certificate of Training awarded to Kalendra Kumar Yadav (12-04-2026 to 12-05-2026)",
+        description:
+          "Official Certificate of Training awarded by Amdox Technologies documenting Web Development training from 12-04-2026 to 12-05-2026.",
+        issueDate: "17 May 2026",
+        certificateId: "adx/bv8OpAfnsr",
+      },
+    ],
   },
   {
-    id: "nexa-platform",
-    title: "Local-First Web Productivity Workspace",
-    organizationOrContext: "Nexa · Frontend Architecture",
-    category: "milestone",
-    categoryLabel: "ENGINEERING MILESTONE",
-    periodOrStatus: "Active Development",
+    id: "dronacharya-btech",
+    organization: "Dronacharya Group of Institutions",
+    role: "B.Tech in Computer Science & Engineering",
+    experienceType: "Education",
+    startDate: "2025",
+    endDate: "2029",
+    duration: "2025 — 2029",
+    location: "Greater Noida, India",
     isOngoing: true,
     accentVariant: "cyan",
     description:
-      "Architected an optimistic, low-latency productivity tool designed with strict keyboard-first interaction patterns and conflict-free state mutations.",
-    highlights: [
-      "Engineered optimistic state reconciliation layer with rollback validation.",
-      "Built keyboard-driven command execution system with accessible dialogs.",
+      "Undergraduate Computer Science studies focusing on core algorithms, systems programming, and software engineering foundations.",
+    learningOutcomes: [
+      "Data Structures & Algorithms in C++ and Java.",
+      "Database Management Systems & SQL.",
+      "Operating Systems & Computer Networks.",
     ],
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand"],
-  },
-  {
-    id: "netravaha-cv",
-    title: "Assistive Computer Vision Inference Pipeline",
-    organizationOrContext: "NetraVaha · Research Prototype",
-    category: "milestone",
-    categoryLabel: "RESEARCH PROTOTYPE",
-    periodOrStatus: "Prototype Phase",
-    accentVariant: "blue",
-    description:
-      "Developed a low-latency edge visual perception prototype analyzing camera feeds to detect pathway obstacles and stream spatial alerts.",
-    highlights: [
-      "Optimized frame inference pipelines to preserve obstacle edge precision under edge compute constraints.",
-      "Implemented persistent WebSocket channel for sub-100ms alert streaming.",
-    ],
-    technologies: ["Python", "OpenCV", "TensorFlow", "WebSockets", "FastAPI"],
-  },
-  {
-    id: "biotrace-iot",
-    title: "IoT Sanitation Telemetry & Audit Architecture",
-    organizationOrContext: "BioTrace / NidusClean · Healthcare Systems",
-    category: "milestone",
-    categoryLabel: "SYSTEM MILESTONE",
-    periodOrStatus: "Case Study Complete",
-    accentVariant: "pink",
-    description:
-      "Engineered an end-to-end telemetry ingestion architecture capturing sensor event logs for regulatory sanitation and environmental compliance.",
-    highlights: [
-      "Structured immutable audit trails with event timestamp verification.",
-      "Designed high-contrast editorial dashboard for real-time facility metric inspection.",
-    ],
-    technologies: ["TypeScript", "Next.js", "Node.js", "PostgreSQL", "IoT Telemetry"],
-  },
-  {
-    id: "cs-undergrad",
-    title: "Computer Science & Engineering Studies",
-    organizationOrContext: "Higher Education · Curriculum Foundations",
-    category: "education",
-    categoryLabel: "ACADEMIC FOUNDATION",
-    periodOrStatus: "Undergraduate Journey",
-    isOngoing: true,
-    accentVariant: "white",
-    description:
-      "Rigorous theoretical and applied computer science coursework focusing on computational complexity, system architecture, and algorithmic design.",
-    highlights: [
-      "Core Coursework: Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems.",
-      "Applied Studies: Operating Systems, Computer Networks, Software Engineering Methodologies.",
-    ],
-    technologies: ["C / C++", "Java", "SQL", "Algorithms", "System Architecture"],
+    technologies: ["C / C++", "Java", "SQL", "Data Structures", "Algorithms"],
   },
 ];
+
+// Backward-compatibility alias
+export type TimelineEntry = ExperienceEntry;
+export const experienceTimelineData = experienceEntries;

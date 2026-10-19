@@ -93,7 +93,7 @@ export function SkillsSection({ headingAs = "h2" }: SkillsSectionProps = {}) {
         </div>
 
         {/* B. PRIMARY PRODUCTION STACK (High-Priority Recruiter Scan Strip) */}
-        <div className="border-3 border-ink-black bg-surface-white p-6 sm:p-8 shadow-brutal-md space-y-5">
+        <div className="border-3 border-ink-black bg-surface-white p-4 sm:p-6 md:p-8 shadow-brutal-md space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b-2 border-ink-black/15 pb-3">
             <div className="space-y-1">
               <span className="font-mono text-xs font-bold uppercase tracking-wider text-text-muted">
@@ -252,6 +252,7 @@ export function SkillsSection({ headingAs = "h2" }: SkillsSectionProps = {}) {
               size="md"
               icon={<ArrowRight className="w-4 h-4" />}
               iconPosition="right"
+              data-avatar-trigger="explore-projects"
               className="w-full sm:w-auto text-center"
             >
               EXPLORE CASE STUDIES
@@ -262,6 +263,7 @@ export function SkillsSection({ headingAs = "h2" }: SkillsSectionProps = {}) {
               size="md"
               icon={<ArrowRight className="w-4 h-4" />}
               iconPosition="right"
+              data-avatar-trigger="view-experience"
               className="w-full sm:w-auto text-center hover:bg-canvas-cream"
             >
               VIEW ENGINEERING TIMELINE

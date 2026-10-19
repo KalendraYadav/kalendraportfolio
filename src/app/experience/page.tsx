@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { ExperienceSection } from "@/components/sections";
 
 export const metadata: Metadata = {
-  title: "Experience & Engineering Timeline",
+  title: "Professional Experience & Education",
   description:
-    "Chronological engineering milestones, production applications, and academic foundations grounded in verifiable code.",
+    "Verified professional journey, Web Development Internship at AMDox Technologies supported by documentary certificate evidence, and undergraduate computer science studies.",
 };
 
 export default function ExperiencePage() {

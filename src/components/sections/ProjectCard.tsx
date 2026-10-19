@@ -169,6 +169,7 @@ export function ProjectCard({
               type="button"
               onClick={() => onSelectCaseStudy(project, triggerButtonRef)}
               aria-haspopup="dialog"
+              data-avatar-trigger="project-case-study"
               aria-label={`View technical case study for ${project.name}`}
               className={`inline-flex items-center justify-center gap-2 font-display font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-ink-black px-4 py-2.5 min-h-[44px] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black active:translate-x-0.5 active:translate-y-0.5 ${
                 featured
@@ -186,6 +187,7 @@ export function ProjectCard({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-avatar-trigger="project-demo"
                 className="inline-flex items-center justify-center gap-1.5 font-display font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-ink-black px-3.5 py-2.5 min-h-[44px] bg-cyber-cyan text-ink-black shadow-brutal-sm hover:shadow-brutal-md hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black"
                 aria-label={`Open live deployment for ${project.name} in a new tab`}
                 title="Open live deployment in a new tab"
@@ -200,6 +202,7 @@ export function ProjectCard({
                 href={project.repositoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-avatar-trigger="project-source"
                 className="inline-flex items-center justify-center gap-1.5 font-display font-bold text-xs sm:text-sm uppercase tracking-wider border-2 border-ink-black px-3.5 py-2.5 min-h-[44px] bg-surface-white text-ink-black shadow-brutal-sm hover:bg-cyber-yellow hover:shadow-brutal-md hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-black"
                 aria-label={`Open source code repository for ${project.name} in a new tab`}
                 title="Open source code repository in a new tab"
